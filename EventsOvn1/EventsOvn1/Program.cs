@@ -11,8 +11,14 @@ namespace EventsOvn1
         static void Main(string[] args)
         {
             NumberGenerator numberGenerator = new NumberGenerator();
+            numberGenerator.Even += NumberGenerator_Even;
 
             numberGenerator.Start();
+        }
+
+        private static void NumberGenerator_Even(int i, bool isEven)
+        {
+            Console.WriteLine($"{i} is even");
         }
     }
 }

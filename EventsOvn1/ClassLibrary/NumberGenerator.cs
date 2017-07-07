@@ -10,6 +10,8 @@ namespace EventsOvn1
     {
         static Random random = new Random();
 
+        public event Action<int, bool> Even;
+
         public void Start()
         {
             int[] randomNumbers = new int[10];
@@ -18,6 +20,10 @@ namespace EventsOvn1
             {
                 randomNumbers[i] = random.Next(1, 1001);
                 // Console.WriteLine(randomNumbers[i]);
+                if (randomNumbers[i] % 2 == 0)
+                {
+                    Even?.Invoke(randomNumbers[i], true);
+                }
             }
         }
     }
